@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+       let tx;
+       tx = "this"; document.write("<p>" + tx + "<br>");// menampilkan this
+       tx = tx + " is a"; document.write(tx + "<br>"); // Menampilkan this as a
+       tx += " sentence."; document.write(tx + "</p>"); // Menampilkan "this is a sentence."
+
+       let z;
+       z= 6; 
+       document.write("<P>" + z + " " ); // Menampilkan 6
+        z ++; document.write(z + " ");  // ++z dihitung dan di tampilkan
+        ++ z; document.write(z + " ");  // z++ dihitung dulu baru di tampilkan
+        z--; document.write(z + " ");  // --z dikurangin 1 
+
+        z += 13; document.write(z+" "); // z ditambah 13
+        z -= 5; document.write(z+" "); // z dikurangin 5
+
+        z *= 3; document.write(z+" "); // z dikali 3  
+        z /= 6; document.write(z+" "); // z dibagi 6
+        z %= 3; document.write(z+" "); // z dimodulus 3 (modulus adalah sisa bagi )
+
+        let a = 5, b = 5, c = 5, d;
+        d = a++; document.write("<P>" + d + " "); //a = 5
+        d = ++b; document.write(d + " "); //b =6
+        d = c++ + ++c + c++; document.write(d + " "); //c = 5 + 7 + 7 = 19
+
+
+    </script>
+</body>
+</html>
