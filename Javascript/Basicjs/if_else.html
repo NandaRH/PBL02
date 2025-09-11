@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const a = 12, b = 7;
+        //1 : Single branch
+        if(a > b) //true
+            document.write("<p> a is greater than b</p>");
+        //2 : Single branch, with else
+        if(a < b) //false
+            document.write("<p>2: a is less than b");
+                else
+                document.write("<p>2: a is not less than b</p>");
+        //3 : Single branch, multiple statements in the block
+        if(a > b) {
+            document.write("<p>3: a is greater than b<br>");
+            document.write("3: An additional line");
+        }
+        //4 : Multiple branches
+        if(a > b)
+            document.write("<p>4: a is greater than b</p>");
+        else if(a < b)
+            document.write("<p>4: a is less than b</p>");
+        else
+            document.write("<p>4: a is equal to b");
+        //5: character strings
+        const country = "spain";
+        if(country === "spain")
+            document.write("<p>5: Country is Spain</p>");
+        if(country !== "spain")
+            document.write("<p>5: Country is not Spain");
+        //6: ternary operator
+        const greater = (a > b) ? a : b;
+        document.write("<p>6: The greater number is" + greater +"</p>");
+
+    </script>
+</body>
+</html>
