@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contoh for...in</title>
+</head>
+<body>
+    <h1>Contoh for...in dengan Array</h1>
+    <div id="hasil"></div>
+
+    <script>
+        let buah = ["apel", "pisang", "jeruk"];
+        let output = "";
+
+        for (let index in buah) {
+            output += "Index " + index + ": " + buah[index] + "<br>";
+        }
+
+        document.getElementById("hasil").innerHTML = output;
+    </script>
+</body>
+</html>

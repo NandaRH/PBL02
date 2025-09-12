@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contoh While Loop</title>
+</head>
+<body>
+  <h2>Hasil Perulangan dengan While</h2>
+  <div id="output"></div>
+
+  <script>
+    let i = 1; // inisialisasi
+    let teks = "";
+
+    while (i <= 5) { // kondisi
+      teks += + i + "<br>";
+      i++; // jangan lupa increment agar loop berhenti
+    }
+
+    document.getElementById("output").innerHTML = teks;
+  </script>
+</body>
+</html>

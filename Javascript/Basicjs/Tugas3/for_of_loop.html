@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contoh for...of</title>
+</head>
+<body>
+    <h1>Contoh for...of dengan Array</h1>
+    <div id="hasil"></div>
+
+    <script>
+        let buah = ["apel", "pisang", "jeruk"];
+        let output = "";
+
+        for (let item of buah) {
+            output += "Buah: " + item + "<br>";
+        }
+
+        document.getElementById("hasil").innerHTML = output;
+    </script>
+</body>
+</html>
