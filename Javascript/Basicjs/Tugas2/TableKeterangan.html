@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keterangan</title>
+</head>
+<body>
+    <script>
+        let nama = prompt("Masukan Nama: ");
+        let jeniskelamin = prompt("Masukan Jenis Kelamin(pria / wanita): ").toLowerCase().trim();
+        let status = prompt("Masukan Status: ").toLowerCase().trim();
+        let keterangan = "";
+
+        if(jeniskelamin === "pria" && status === "sendiri"){
+            keterangan = "Perjaka";
+        }else if(jeniskelamin === "pria" && status === "kawin"){
+            keterangan ="Menikah";
+        }else if(jeniskelamin === "pria" && status === "cerai" ){
+            keterangan ="Duda";
+        }else if(jeniskelamin === "wanita" && status === "sendiri"){
+            keterangan ="Perawan";
+        }else if(jeniskelamin === "wanita" && status === "kawin"){
+            keterangan ="Menikah";
+        }else if(jeniskelamin === "wanita" && status === "cerai"){
+            keterangan ="janda";
+        }else{
+            alert("Data tidak boleh ngasal");
+        }
+            
+        
+
+        document.write("<h2>Nama "+ nama + " jenis kelamin " + jeniskelamin + " status " + status + " Keterangan " + keterangan + "</h2>");
+    </script>
+
+
+</body>
+</html>
