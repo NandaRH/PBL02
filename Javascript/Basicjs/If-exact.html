@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>if Exact</title>
+</head>
+<body>
+    <script>
+        const a = 4711;
+        const b = "4711";
+        const c = 4711;
+        const d = true; //const d = true; tipe data string
+
+        document.write("<p>a: " + a + ", " + typeof a + "<br>");
+        document.write("b: " + b + ", " + typeof b + "<br>");
+        document.write("b: " + c + ", " + typeof c + "<br>");
+        document.write("d: " + d + ", " + typeof c + "<br><br>");
+        if (a == b)
+            document.write("a == b<br>");
+        if (a === c)
+            document.write("a === c<br>");
+        if (a === b)
+            document.write("a === b");
+        else (a == b)
+        document.write("Not a === b")
+    </script>
+</body>
+</html>

@@ -8,7 +8,29 @@
 <body>
 <script>
     const number_random = Math.random();
-    
+    const input = prompt("Please enter a number from 0 to 1, without 1");
+    const number_input = parseFloat(input);
+    const distance = Math.abs(number_random - number_input);
+    if(input == null)
+        document.write("Cancel");
+    else if(input === "")
+        document.write("No input");
+    else if(isNaN(input))
+        document.write("No valid number");
+    else if(number_input <0 || number_input >= 1)
+        document.write("No number in the valid range");
+    else if(distance ,0.1)
+        document.write("You are close");
+    else
+        document.write("You are far off");
+        
+    document.write("<br><br>Random: " + number_random + "<br>");
+    document.write("input: " + input + "<br>");
+    document.write("isNan(): " + isNaN(input) + "<br>");
+    document.write("Number; " + number_input + "<br>");
+    const number_diff = number_random - number_input;
+    document.write("Difference: " + number_diff + "<br>");
+    document.write("Distance: " + distance);
 </script>
 </body>
 </html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Do While</title>
+</head>
+<body>
+    <script>
+        const number_random = Math.random() * 20 + 1;
+        const a = Math.floor(number_random);
+        const b = Math.floor(Math.random() * 20 + 1);
+        const sum = a + b;
+        let number_input;
+
+        do {
+            const input = prompt(a + " + " + b + " = ");
+            number_input = parseInt(input);
+
+            if (number_input !== sum) {
+                alert("Please try again");
+            }
+        } while (number_input !== sum);
+
+        document.write(a + " + " + b + " = " + sum);
+    </script>
+</body>
+</html>
