@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tugas Switch</title>
+</head>
+<body>
+    <script>
+        const nama1 = "Mohammad Septiawan"
+        const nip1 = "197209172005011002";
+        let tanggalasn;
+        let jeniskelamin;
+        let tahun;
+        let bulan;
+        let tanggal;
+        let dateObj;
+        let opsiTanggal;
+        let opsiHari;
+        let tanggalFormat;
+        let hariFormat;
+        let tahun1;
+        let bulan1;
+        let dateObj1;
+        let opsiTanggal1;
+        let tanggalFormat1;
+        let input;
+        let nourut;
+
+
+
+        switch(nip1)
+        {
+            case "197209172005011002":
+
+            tanggallahir = nip1.slice(0, 8); //Potong 0-8
+
+            tahun = tanggallahir.slice(0,4); //Potong Tahun
+            bulan = tanggallahir.slice(4,6); //Potong Bulan
+            tanggal = tanggallahir.slice(6,8); //Potong Hari
+
+            dateObj = new Date(tahun, bulan-1, tanggal);
+
+            opsiTanggal = {day: 'numeric', month: 'long', year: 'numeric'};
+            opsiHari = {weekday: 'long'};
+
+            tanggalFormat = dateObj.toLocaleDateString('id-ID', opsiTanggal);
+            hariFormat = dateObj.toLocaleDateString('id-ID', opsiHari);
+
+            case "197209172005011002":
+            tanggalasn = nip1.slice(8, 14);
+
+            tahun1 = tanggalasn.slice(0,4);
+            bulan1 = tanggalasn.slice(4,6);
+
+            dateObj1 = new Date(tahun1, bulan1-1, 1);
+
+            opsiTanggal1 = {month: 'long', year: 'numeric'};
+
+            tanggalFormat1 = dateObj1.toLocaleDateString('id-ID', opsiTanggal1);
+
+            case "197209172005011002":
+
+            jeniskelamin = nip1.slice(14,15);
+
+            if(jeniskelamin == 1){
+                input = "laki-laki";
+            }else
+                input = "Wanita";
+
+            case "197209172005011002":
+            
+            nourut = nip1.slice(15,18);
+
+            
+
+
+            break;
+
+        }
+        document.write("Nama : " + nama1 + "<br>");
+        document.write("NIP : " + nip1 + "<br>");
+        document.write(`Tanggal Lahir: ${tanggalFormat} <br>Hari: ${hariFormat} <br>`);
+        document.write(`Tanggal Asn: ${tanggalFormat1} <br>`);
+        document.write(`Jenis Kelamin: ${input} <br>`);
+        document.write(`No Urut: ${nourut}`);
+
+    </script>
+</body>
+</html>

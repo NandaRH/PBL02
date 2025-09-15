@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const country = prompt("Please enter a country: ");
+        let city;
+        switch(country)
+        {
+            case "Italy":
+                city = "Rome";
+                break;
+            case "England":
+            case "Wales":
+            case "Scotland":
+                    city = "London";
+                    break;
+            default:
+                city = "Not known";
+        }
+        document.write("Capital of the country: " + city);
+
+    </script>
+</body>
+</html>
