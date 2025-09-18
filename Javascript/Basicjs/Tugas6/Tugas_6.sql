@@ -1,4 +1,4 @@
-drop procedure sp_ins_pelanggan;
+drop database warung;
 
 create database if not exists warung;
 
