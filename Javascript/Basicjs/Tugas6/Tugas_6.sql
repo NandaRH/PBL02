@@ -182,8 +182,7 @@ SELECT
     pl.nama AS nama_pelanggan,
     pr.nama AS nama_produk,
     d.jumlah,
-    pr.harga,
-    (d.jumlah * pr.harga) AS subtotal
+    pr.harga
 FROM penjualan p
 JOIN pelanggan pl ON p.kode_pelanggan = pl.kode
 JOIN detail_penjualan d ON p.no_jual = d.no_jual
@@ -191,24 +190,26 @@ JOIN produk pr ON d.kode_produk = pr.kode;
 
 SELECT * FROM vw_laporan_penjualan;
 
-DELIMITER //
 
-CREATE FUNCTION fn_total_penjualan(p_no_jual VARCHAR(20))
-RETURNS DECIMAL(12,2)
-DETERMINISTIC
-BEGIN
-    DECLARE v_total DECIMAL(12,2);
+delimiter //
 
-    SELECT SUM(d.jumlah * pr.harga)
-    INTO v_total
-    FROM detail_penjualan d
-    JOIN produk pr ON d.kode_produk = pr.kode
-    WHERE d.no_jual = p_no_jual;
+create function fn_total_penjualan(
+    p_no_jual varchar(20)
+) returns decimal(12,2) deterministic
+begin
+    return ifnull((
+        select sum(d.jumlah * pr.harga)
+        from detail_penjualan d
+        join produk pr on d.kode_produk = pr.kode
+        where d.no_jual = p_no_jual
+    ), 0);
+end //
 
-    RETURN IFNULL(v_total,0);
-END //
+delimiter ;
 
-DELIMITER ;
+
+select fn_total_penjualan('J001') as total;
+
 
 DELIMITER //
 
