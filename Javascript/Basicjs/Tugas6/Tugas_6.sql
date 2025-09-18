@@ -1,14 +1,40 @@
-drop database warung;
+drop procedure sp_ins_pelanggan;
+
+create database if not exists warung;
 
 use warung;
 
-create table if not exists pelanggan (
-        kode varchar(20) primary key ,
-        nama varchar(100),
-        kelamin varchar(10),
-        alamat varchar(25),
-        kota varchar(25)
+CREATE TABLE IF NOT EXISTS kelamin (
+    kode INT PRIMARY KEY,
+    nama VARCHAR(10)
 );
+
+CREATE TABLE IF NOT EXISTS kota (
+    kode INT PRIMARY KEY,
+    nama VARCHAR(25)
+);
+
+create table if not exists pelanggan
+(
+    kode    varchar(20) primary key,
+    nama    varchar(100),
+    kelamin int,
+    alamat  varchar(25),
+    kota    int,
+    FOREIGN KEY (kelamin) REFERENCES kelamin(kode),
+    FOREIGN KEY (kota) REFERENCES kota(kode)
+);
+
+INSERT INTO kelamin (kode, nama) VALUES
+(1, 'Pria'),
+(2, 'Wanita');
+
+INSERT INTO kota (kode, nama) VALUES
+(1, 'Jakarta'),
+(2, 'Bandung'),
+(3, 'Surabaya');
+
+
 
 DELIMITER //
 
@@ -16,36 +42,12 @@ CREATE PROCEDURE sp_ins_pelanggan(
     IN p_kode VARCHAR(20),
     IN p_nama VARCHAR(100),
     IN p_kode_kelamin INT,
-    IN p_alamat Varchar(25),
+    IN p_alamat VARCHAR(25),
     IN p_kode_kota INT
 )
 BEGIN
-    DECLARE v_kelamin VARCHAR(10);
-    DECLARE v_kota VARCHAR(25);
-
-    -- Mapping kelamin
-    IF p_kode_kelamin = 1 THEN
-        SET v_kelamin = 'Pria';
-    ELSEIF p_kode_kelamin = 2 THEN
-        SET v_kelamin = 'Wanita';
-    ELSE
-        SET v_kelamin = 'Tidak Diketahui';
-    END IF;
-
-    -- Mapping kota
-    IF p_kode_kota = 1 THEN
-        SET v_kota = 'Jakarta';
-    ELSEIF p_kode_kota = 2 THEN
-        SET v_kota = 'Bandung';
-    ELSEIF p_kode_kota = 3 THEN
-        SET v_kota = 'Surabaya';
-    ELSE
-        SET v_kota = 'Kota Lain';
-    END IF;
-
-    -- Insert ke tabel pelanggan
     INSERT INTO pelanggan (kode, nama, kelamin, alamat, kota)
-    VALUES (p_kode, p_nama, v_kelamin, p_alamat, v_kota);
+    VALUES (p_kode, p_nama, p_kode_kelamin, p_alamat, p_kode_kota);
 END//
 
 DELIMITER ;
@@ -58,101 +60,55 @@ CALL sp_ins_pelanggan('PGl005','Damay',2,'Gubeng' ,3);
 CALL sp_ins_pelanggan('PGl006','Tsaniy',1,'Darmo' ,3);
 CALL sp_ins_pelanggan('PGl007','Nabila',2,'Lebak Bulus' ,1);
 
-DELIMITER $$
-
-CREATE PROCEDURE sp_manage_pelanggan (
-    IN p_aksi VARCHAR(10),         -- DELETE atau UPDATE
-    IN p_kode VARCHAR(20),         -- kode pelanggan
-    IN p_nama VARCHAR(100),        -- nama baru (untuk UPDATE)
-    IN p_kode_kelamin INT,         -- kode kelamin baru (untuk UPDATE)
-    IN p_alamat VARCHAR(25),       -- alamat baru (untuk UPDATE)
-    IN p_kode_kota INT             -- kode kota baru (untuk UPDATE)
-)
-BEGIN
-    DECLARE v_kelamin VARCHAR(10);
-    DECLARE v_kota VARCHAR(25);
-
-    -- mapping kelamin
-    IF p_kode_kelamin = 1 THEN
-        SET v_kelamin = 'Pria';
-    ELSEIF p_kode_kelamin = 2 THEN
-        SET v_kelamin = 'Wanita';
-    ELSE
-        SET v_kelamin = 'Tidak Diketahui';
-    END IF;
-
-    -- mapping kota
-    IF p_kode_kota = 1 THEN
-        SET v_kota = 'Jakarta';
-    ELSEIF p_kode_kota = 2 THEN
-        SET v_kota = 'Bandung';
-    ELSEIF p_kode_kota = 3 THEN
-        SET v_kota = 'Surabaya';
-    ELSE
-        SET v_kota = 'Kota Lain';
-    END IF;
-
-    -- pilih aksi
-    IF UPPER(p_aksi) = 'DELETE' THEN
-        DELETE FROM pelanggan WHERE kode = p_kode;
-
-    ELSEIF UPPER(p_aksi) = 'UPDATE' THEN
-        UPDATE pelanggan
-        SET nama    = p_nama,
-            kelamin = v_kelamin,
-            alamat  = p_alamat,
-            kota    = v_kota
-        WHERE kode = p_kode;
-    END IF;
-END$$
-
-DELIMITER ;
-
-
-SELECT * FROM pelanggan;
-
+CREATE OR REPLACE VIEW vw_pelanggan_lengkap AS
+SELECT
+    p.kode AS kode_pelanggan,
+    p.nama AS nama_pelanggan,
+    k.nama AS kelamin,
+    p.alamat,
+    c.nama AS kota
+FROM pelanggan p
+JOIN kelamin k ON p.kelamin = k.kode
+JOIN kota c ON p.kota = c.kode;
 
 use warung;
+
+CREATE TABLE IF NOT EXISTS satuan (
+    kode INT PRIMARY KEY,
+    nama VARCHAR(25)
+);
 
 create table if not exists produk (
         kode varchar(20) primary key ,
         nama varchar(100),
-        satuan varchar(20),
+        satuan int,
         stock int,
-        harga int
+        harga decimal(10,2),
+        FOREIGN KEY (satuan) REFERENCES satuan(kode)
 );
+
+INSERT INTO satuan (kode, nama) VALUES
+(1, 'Bungkus'),
+(2, 'Pak'),
+(3, 'Botol');
 
 DELIMITER //
 
 CREATE PROCEDURE sp_ins_produk(
     IN p_kode VARCHAR(20),
     IN p_nama VARCHAR(100),
-    IN p_kode_satuan INT,
-    IN p_stock int,
-    IN p_harga int
+    IN p_satuan INT,
+    IN p_stock INT,
+    IN p_harga DECIMAL(10,2)
 )
 BEGIN
-    DECLARE v_satuan varchar(20);
-
-    -- Mapping satuan
-    IF p_kode_satuan = 1 THEN
-        SET v_satuan= 'Bungkus';
-    ELSEIF p_kode_satuan = 2 THEN
-        SET v_satuan = 'Pak';
-    ELSEif p_kode_satuan = 3 then
-        SET v_satuan= 'Botol';
-    Else
-        set v_satuan='Tidak ada Satuan';
-    End if;
-
-    -- Insert ke tabel produk
     INSERT INTO produk (kode, nama, satuan, stock, harga)
-    VALUES (p_kode, p_nama, v_satuan, p_stock, p_harga);
+    VALUES (p_kode, p_nama, p_satuan, p_stock, p_harga);
 END//
 
 DELIMITER ;
 
-call sp_ins_produk('P001','indomie',1,10,3000);
+call sp_ins_produk('P001','Indomie',1,10,3000);
 call sp_ins_produk('P002','Roti',2,3,18000);
 call sp_ins_produk('P003','Kecap',3,8,4700);
 call sp_ins_produk('P004','SaosTomat',3,8,5800);
@@ -161,7 +117,16 @@ call sp_ins_produk('P006','Sikat Gigi',2,5,15000);
 call sp_ins_produk('P007','Pasta Gigi',2,7,10000);
 call sp_ins_produk('P008','Saos Sambal',3,5,7300);
 
-select * from produk;
+CREATE OR REPLACE VIEW v_produk_lengkap AS
+SELECT
+    p.kode,
+    p.nama,
+    s.nama AS satuan,
+    p.stock,
+    p.harga
+FROM produk p
+JOIN satuan s ON p.satuan = s.kode;
+
 
 use warung;
 
