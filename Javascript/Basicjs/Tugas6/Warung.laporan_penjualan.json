@@ -1,0 +1,196 @@
+[{
+  "_id": {
+    "$oid": "68cd1bb8bdd6605182926270"
+  },
+  "no_jual": "J001",
+  "tgl_jual": {
+    "$date": "2025-09-08T00:00:00.000Z"
+  },
+  "nama_pelanggan": "Atila",
+  "nama_produk": "Indomie",
+  "jumlah": 2,
+  "harga": 3000,
+  "subtotal": 6000
+},
+{
+  "_id": {
+    "$oid": "68cd1bb8bdd6605182926270"
+  },
+  "no_jual": "J001",
+  "tgl_jual": {
+    "$date": "2025-09-08T00:00:00.000Z"
+  },
+  "nama_pelanggan": "Atila",
+  "nama_produk": "Kecap",
+  "jumlah": 1,
+  "harga": 4700,
+  "subtotal": 4700
+},
+{
+  "_id": {
+    "$oid": "68cd1bb8bdd6605182926270"
+  },
+  "no_jual": "J001",
+  "tgl_jual": {
+    "$date": "2025-09-08T00:00:00.000Z"
+  },
+  "nama_pelanggan": "Atila",
+  "nama_produk": "SaosTomat",
+  "jumlah": 1,
+  "harga": 5800,
+  "subtotal": 5800
+},
+{
+  "_id": {
+    "$oid": "68cd1bb8bdd6605182926271"
+  },
+  "no_jual": "J002",
+  "tgl_jual": {
+    "$date": "2025-09-08T00:00:00.000Z"
+  },
+  "nama_pelanggan": "Nabila",
+  "nama_produk": "Sikat Gigi",
+  "jumlah": 1,
+  "harga": 15000,
+  "subtotal": 15000
+},
+{
+  "_id": {
+    "$oid": "68cd1bb8bdd6605182926271"
+  },
+  "no_jual": "J002",
+  "tgl_jual": {
+    "$date": "2025-09-08T00:00:00.000Z"
+  },
+  "nama_pelanggan": "Nabila",
+  "nama_produk": "Pasta Gigi",
+  "jumlah": 1,
+  "harga": 10000,
+  "subtotal": 10000
+},
+{
+  "_id": {
+    "$oid": "68cd1bb8bdd6605182926272"
+  },
+  "no_jual": "J003",
+  "tgl_jual": {
+    "$date": "2025-09-09T00:00:00.000Z"
+  },
+  "nama_pelanggan": "Nuafal",
+  "nama_produk": "Indomie",
+  "jumlah": 5,
+  "harga": 3000,
+  "subtotal": 15000
+},
+{
+  "_id": {
+    "$oid": "68cd1bb8bdd6605182926272"
+  },
+  "no_jual": "J003",
+  "tgl_jual": {
+    "$date": "2025-09-09T00:00:00.000Z"
+  },
+  "nama_pelanggan": "Nuafal",
+  "nama_produk": "SaosTomat",
+  "jumlah": 2,
+  "harga": 5800,
+  "subtotal": 11600
+},
+{
+  "_id": {
+    "$oid": "68cd1bb8bdd6605182926272"
+  },
+  "no_jual": "J003",
+  "tgl_jual": {
+    "$date": "2025-09-09T00:00:00.000Z"
+  },
+  "nama_pelanggan": "Nuafal",
+  "nama_produk": "Saos Sambal",
+  "jumlah": 2,
+  "harga": 7300,
+  "subtotal": 14600
+},
+{
+  "_id": {
+    "$oid": "68cd1bb8bdd6605182926272"
+  },
+  "no_jual": "J003",
+  "tgl_jual": {
+    "$date": "2025-09-09T00:00:00.000Z"
+  },
+  "nama_pelanggan": "Nuafal",
+  "nama_produk": "Kecap",
+  "jumlah": 1,
+  "harga": 4700,
+  "subtotal": 4700
+},
+{
+  "_id": {
+    "$oid": "68cd1bb8bdd6605182926273"
+  },
+  "no_jual": "J004",
+  "tgl_jual": {
+    "$date": "2025-09-10T00:00:00.000Z"
+  },
+  "nama_pelanggan": "Damay",
+  "nama_produk": "Roti",
+  "jumlah": 3,
+  "harga": 18000,
+  "subtotal": 54000
+},
+{
+  "_id": {
+    "$oid": "68cd1bb8bdd6605182926273"
+  },
+  "no_jual": "J004",
+  "tgl_jual": {
+    "$date": "2025-09-10T00:00:00.000Z"
+  },
+  "nama_pelanggan": "Damay",
+  "nama_produk": "SaosTomat",
+  "jumlah": 2,
+  "harga": 5800,
+  "subtotal": 11600
+},
+{
+  "_id": {
+    "$oid": "68cd1bb8bdd6605182926273"
+  },
+  "no_jual": "J004",
+  "tgl_jual": {
+    "$date": "2025-09-10T00:00:00.000Z"
+  },
+  "nama_pelanggan": "Damay",
+  "nama_produk": "Saos Sambal",
+  "jumlah": 2,
+  "harga": 7300,
+  "subtotal": 14600
+},
+{
+  "_id": {
+    "$oid": "68cd1bb8bdd6605182926273"
+  },
+  "no_jual": "J004",
+  "tgl_jual": {
+    "$date": "2025-09-10T00:00:00.000Z"
+  },
+  "nama_pelanggan": "Damay",
+  "nama_produk": "Sikat Gigi",
+  "jumlah": 1,
+  "harga": 15000,
+  "subtotal": 15000
+},
+{
+  "_id": {
+    "$oid": "68cd1bb8bdd6605182926273"
+  },
+  "no_jual": "J004",
+  "tgl_jual": {
+    "$date": "2025-09-10T00:00:00.000Z"
+  },
+  "nama_pelanggan": "Damay",
+  "nama_produk": "Pasta Gigi",
+  "jumlah": 1,
+  "harga": 10000,
+  "subtotal": 10000
+}]
